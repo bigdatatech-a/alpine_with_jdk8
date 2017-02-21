@@ -17,6 +17,4 @@ RUN apk add --update python python-dev py-pip build-base && pip install virtuale
 
 RUN python -V
 
-RUN apk add autoconf
-RUN apk add make
-RUN apk add automake
+RUN apk update && apk add autoconf && apk add make && apk add automake
