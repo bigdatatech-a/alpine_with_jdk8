@@ -2,10 +2,13 @@ FROM bigdatatech/alpine_linux
 
 MAINTAINER sandeep <bigdatatechcomputing@gmail.com>
 
-RUN apk --no-cache add openjdk8-jre
+COPY install_java_8.sh /tmp/install_java_8.sh
+RUN chmod 775 install_java_8.sh 
 
-ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
+RUN /tmp/install_oracle_java.sh && rm -rf /tmp/*
+
+ENV JAVA_HOME /opt/jdk
 
 ENV PATH ${PATH}:${JAVA_HOME}/bin
 
-CMD ["/usr/bin/java", "-version"]
+CMD ["java", "-version"]
