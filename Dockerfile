@@ -12,3 +12,7 @@ ENV JAVA_HOME /opt/jdk
 ENV PATH ${PATH}:${JAVA_HOME}/bin
 
 CMD ["java", "-version"]
+
+RUN apk add --update python python-dev py-pip build-base && pip install virtualenv && rm -rf /var/cache/apk/*
+
+RUN python -V
