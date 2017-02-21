@@ -16,3 +16,7 @@ CMD ["java", "-version"]
 RUN apk add --update python python-dev py-pip build-base && pip install virtualenv && rm -rf /var/cache/apk/*
 
 RUN python -V
+
+RUN apk add autoconf
+RUN apk add make
+RUN apk add automake
