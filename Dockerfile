@@ -2,14 +2,16 @@ FROM bigdatatech/alpine_linux
 
 MAINTAINER sandeep <bigdatatechcomputing@gmail.com>
 
-RUN apk update && apk add openjdk8
 
-ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
+COPY install_java_8.sh /tmp/install_java_8.sh
+
+RUN /tmp/install_java_8.sh  && rm -rf /tmp/*
+
+ENV JAVA_HOME /opt/jdk
 
 ENV PATH ${PATH}:${JAVA_HOME}/bin
 
-CMD ["/usr/bin/java", "-version"]
-
+CMD ["java", "-version"]
 
 
 RUN apk add --update python python-dev py-pip build-base && pip install virtualenv && rm -rf /var/cache/apk/* 
