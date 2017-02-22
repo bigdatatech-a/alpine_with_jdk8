@@ -12,7 +12,7 @@ CMD ["/usr/bin/java", "-version"]
 
 
 
-RUN apk add --update python python-dev py-pip build-base && pip install virtualenv && rm -rf /var/cache/apk/*
+RUN apk add python==2.7.12-r0
 
 RUN python -V
 
